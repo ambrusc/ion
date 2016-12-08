@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<IAD name="IonRemoteNodeGraphRoot" disable_in_prod="true">
-  <assets prefix="/ion">
-    <file>nodegraph/index.html</file>
-    <file>nodegraph/nodegraph.css</file>
-    <file>nodegraph/nodegraph.js</file>
-  </assets>
-</IAD>

@@ -53,19 +53,19 @@
     #   ],
     # },  # target: textdemo_assets
 
-    # {
-    #   'target_name': 'threadingdemo_assets',
-    #   'type': 'static_library',
-    #   'includes': [
-    #     '../dev/zipasset_generator.gypi',
-    #   ],
-    #   'dependencies': [
-    #     '<(ion_dir)/port/port.gyp:ionport',
-    #   ],
-    #   'sources': [
-    #     'threadingdemo_assets.iad',
-    #   ],
-    # },  # target: threadingdemo_assets
+    {
+      'target_name': 'threadingdemo_assets',
+      'type': 'static_library',
+      'includes': [
+        '../dev/zipasset_generator.gypi',
+      ],
+      'dependencies': [
+        '<(ion_dir)/port/port.gyp:ionport',
+      ],
+      'sources': [
+        'threadingdemo_assets.iad',
+      ],
+    },  # target: threadingdemo_assets
 
     # {
     #   'target_name': 'particles_assets',
@@ -81,49 +81,49 @@
     #   ],
     # },  # target: particles_assets
 
-    # {
-    #   'target_name': 'gearsdemo_assets',
-    #   'type': 'static_library',
-    #   'includes': [
-    #     '../dev/zipasset_generator.gypi',
-    #   ],
-    #   'dependencies': [
-    #     '<(ion_dir)/port/port.gyp:ionport',
-    #   ],
-    #   'sources': [
-    #     'gearsdemo_assets.iad',
-    #   ],
-    # },  # target: gearsdemo_assets
+    {
+      'target_name': 'gearsdemo_assets',
+      'type': 'static_library',
+      'includes': [
+        '../dev/zipasset_generator.gypi',
+      ],
+      'dependencies': [
+        '<(ion_dir)/port/port.gyp:ionport',
+      ],
+      'sources': [
+        'gearsdemo_assets.iad',
+      ],
+    },  # target: gearsdemo_assets
 
-    # {
-    #   'target_name': 'shapedemo_assets',
-    #   'type': 'static_library',
-    #   'includes': [
-    #     '../dev/zipasset_generator.gypi',
-    #   ],
-    #   'dependencies': [
-    #     '<(ion_dir)/port/port.gyp:ionport',
-    #   ],
-    #   'sources': [
-    #     'shapedemo_assets.iad',
-    #   ],
-    # },  # target: shapedemo_assets
+    {
+      'target_name': 'shapedemo_assets',
+      'type': 'static_library',
+      'includes': [
+        '../dev/zipasset_generator.gypi',
+      ],
+      'dependencies': [
+        '<(ion_dir)/port/port.gyp:ionport',
+      ],
+      'sources': [
+        'shapedemo_assets.iad',
+      ],
+    },  # target: shapedemo_assets
 
 
-    # {
-    #   'target_name': 'skindemo_assets',
-    #   'type': 'static_library',
-    #   'includes': [
-    #     '../dev/zipasset_generator.gypi',
-    #   ],
-    #   'dependencies': [
-    #     '<(ion_dir)/port/port.gyp:ionport',
-    #   ],
-    #   'sources': [
-    #     'skindemo_assets.iad',
-    #     'skindemo_data_assets.iad',
-    #   ],
-    # },  # target: skindemo_assets
+    {
+      'target_name': 'skindemo_assets',
+      'type': 'static_library',
+      'includes': [
+        '../dev/zipasset_generator.gypi',
+      ],
+      'dependencies': [
+        '<(ion_dir)/port/port.gyp:ionport',
+      ],
+      'sources': [
+        'skindemo_assets.iad',
+        'skindemo_data_assets.iad',
+      ],
+    },  # target: skindemo_assets
 
     # {
     #   'target_name': 'iondraw',
@@ -199,79 +199,79 @@
     #   ],
     # },
 
-    # {
-    #   'target_name': 'gearsdemo',
-    #   'includes': [ 'demobase.gypi', ],
-    #   'variables': {
-    #     'demo_class_name': 'IonGearsDemo'
-    #   },
-    #   'sources': [
-    #     'gearsdemo.cc',
-    #   ],
-    #   'dependencies': [
-    #     'gearsdemo_assets',
-    #   ],
-    # },
-    # {
-    #   'variables': {
-    #     'make_this_target_into_an_app_param': 'gearsdemo',
-    #     'apk_class_name_param': 'IonGearsDemo',
-    #   },
-    #   'includes': [
-    #     'demo_apk_variables.gypi',
-    #   ],
-    # },
+    {
+      'target_name': 'gearsdemo',
+      'includes': [ 'demobase.gypi', ],
+      'variables': {
+        'demo_class_name': 'IonGearsDemo'
+      },
+      'sources': [
+        'gearsdemo.cc',
+      ],
+      'dependencies': [
+        'gearsdemo_assets',
+      ],
+    },
+    {
+      'variables': {
+        'make_this_target_into_an_app_param': 'gearsdemo',
+        'apk_class_name_param': 'IonGearsDemo',
+      },
+      'includes': [
+        'demo_apk_variables.gypi',
+      ],
+    },
 
-    # {
-    #   'target_name': 'shapedemo',
-    #   'includes': [ 'demobase.gypi', ],
-    #   'variables': {
-    #     'demo_class_name': 'IonShapeDemo'
-    #   },
-    #   'sources': [
-    #     'shapedemo.cc',
-    #   ],
-    #   'dependencies': [
-    #     'shapedemo_assets',
-    #   ],
-    # },
-    # {
-    #   'variables': {
-    #     'make_this_target_into_an_app_param': 'shapedemo',
-    #     'apk_class_name_param': 'IonShapeDemo',
-    #   },
-    #   'includes': [
-    #     'demo_apk_variables.gypi',
-    #   ],
-    # },
+    {
+      'target_name': 'shapedemo',
+      'includes': [ 'demobase.gypi', ],
+      'variables': {
+        'demo_class_name': 'IonShapeDemo'
+      },
+      'sources': [
+        'shapedemo.cc',
+      ],
+      'dependencies': [
+        'shapedemo_assets',
+      ],
+    },
+    {
+      'variables': {
+        'make_this_target_into_an_app_param': 'shapedemo',
+        'apk_class_name_param': 'IonShapeDemo',
+      },
+      'includes': [
+        'demo_apk_variables.gypi',
+      ],
+    },
 
 
-    # {
-    #   'target_name': 'skindemo',
-    #   'includes': [ 'demobase.gypi', ],
-    #   'variables': {
-    #     'demo_class_name': 'IonSkinDemo'
-    #   },
-    #   'sources': [
-    #     'hud.cc',
-    #     'hud.h',
-    #     'skindemo.cc',
-    #   ],
-    #   'dependencies': [
-    #     ':iondemohud_assets',
-    #     ':skindemo_assets',
-    #     '<(ion_dir)/external/external.gyp:ionopenctm',
-    #   ],
-    # },
-    # {
-    #   'variables': {
-    #     'make_this_target_into_an_app_param': 'skindemo',
-    #     'apk_class_name_param': 'IonSkinDemo',
-    #   },
-    #   'includes': [
-    #     'demo_apk_variables.gypi',
-    #   ],
-    # },
+    {
+      'target_name': 'skindemo',
+      'includes': [ 'demobase.gypi', ],
+      'variables': {
+        'demo_class_name': 'IonSkinDemo'
+      },
+      'sources': [
+        # 'hud.cc',
+        # 'hud.h',
+        'skindemo.cc',
+      ],
+      'dependencies': [
+        # ':iondemohud_assets',
+        ':skindemo_assets',
+        '<(ion_dir)/external/external.gyp:ionopenctm',
+      ],
+    },
+    {
+      'variables': {
+        'make_this_target_into_an_app_param': 'skindemo',
+        'apk_class_name_param': 'IonSkinDemo',
+      },
+      'includes': [
+        'demo_apk_variables.gypi',
+      ],
+    },
 
     # {
     #   'target_name': 'textdemo',
@@ -298,48 +298,48 @@
     #   ],
     # },
 
-    # {
-    #   'target_name': 'threadingdemo',
-    #   'includes': [ 'demobase.gypi', ],
-    #   'variables': {
-    #     'demo_class_name': 'IonThreadingDemo'
-    #   },
-    #   'sources': [
-    #     'threadingdemo.cc',
-    #   ],
-    #   'dependencies': [
-    #     ':threadingdemo_assets',
-    #   ],
-    # },
-    # {
-    #   'variables': {
-    #     'make_this_target_into_an_app_param': 'threadingdemo',
-    #     'apk_class_name_param': 'IonThreadingDemo',
-    #   },
-    #   'includes': [
-    #     'demo_apk_variables.gypi',
-    #   ],
-    # },
+    {
+      'target_name': 'threadingdemo',
+      'includes': [ 'demobase.gypi', ],
+      'variables': {
+        'demo_class_name': 'IonThreadingDemo'
+      },
+      'sources': [
+        'threadingdemo.cc',
+      ],
+      'dependencies': [
+        ':threadingdemo_assets',
+      ],
+    },
+    {
+      'variables': {
+        'make_this_target_into_an_app_param': 'threadingdemo',
+        'apk_class_name_param': 'IonThreadingDemo',
+      },
+      'includes': [
+        'demo_apk_variables.gypi',
+      ],
+    },
 
-    # {
-    #   'target_name': 'volatilescene',
-    #   'includes': [ 'demobase.gypi', ],
-    #   'variables': {
-    #     'demo_class_name': 'IonVolatileScene'
-    #   },
-    #   'sources': [
-    #     'volatilescene.cc',
-    #   ],
-    # },
-    # {
-    #   'variables': {
-    #     'make_this_target_into_an_app_param': 'volatilescene',
-    #     'apk_class_name_param': 'IonVolatileScene',
-    #   },
-    #   'includes': [
-    #     'demo_apk_variables.gypi',
-    #   ],
-    # },
+    {
+      'target_name': 'volatilescene',
+      'includes': [ 'demobase.gypi', ],
+      'variables': {
+        'demo_class_name': 'IonVolatileScene'
+      },
+      'sources': [
+        'volatilescene.cc',
+      ],
+    },
+    {
+      'variables': {
+        'make_this_target_into_an_app_param': 'volatilescene',
+        'apk_class_name_param': 'IonVolatileScene',
+      },
+      'includes': [
+        'demo_apk_variables.gypi',
+      ],
+    },
 
   ],
 }

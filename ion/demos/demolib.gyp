@@ -32,6 +32,7 @@
       ],
       'dependencies' : [
         '<(ion_dir)/base/base.gyp:ionbase',
+        '<(ion_dir)/image/image.gyp:ionimage',
         # '<(ion_dir)/text/text.gyp:iontext',
         # '<(ion_dir)/remote/remote.gyp:ionremote',
       ],

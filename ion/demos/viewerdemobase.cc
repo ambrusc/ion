@@ -25,17 +25,17 @@ limitations under the License.
 #include "ion/math/transformutils.h"
 #include "ion/math/utils.h"
 
-// Production builds will typically not need the Remote library, as it is mostly
-// intended for on-the-fly debugging and development.
-#if !ION_PRODUCTION
-#include "ion/remote/calltracehandler.h"
-#include "ion/remote/nodegraphhandler.h"
-#include "ion/remote/remoteserver.h"
-#include "ion/remote/resourcehandler.h"
-#include "ion/remote/settinghandler.h"
-#include "ion/remote/shaderhandler.h"
-#include "ion/remote/tracinghandler.h"
-#endif
+// // Production builds will typically not need the Remote library, as it is mostly
+// // intended for on-the-fly debugging and development.
+// #if !ION_PRODUCTION
+// #include "ion/remote/calltracehandler.h"
+// #include "ion/remote/nodegraphhandler.h"
+// #include "ion/remote/remoteserver.h"
+// #include "ion/remote/resourcehandler.h"
+// #include "ion/remote/settinghandler.h"
+// #include "ion/remote/shaderhandler.h"
+// #include "ion/remote/tracinghandler.h"
+// #endif
 
 using ion::math::Anglef;
 using ion::math::Matrix4f;
@@ -117,36 +117,36 @@ void ViewerDemoBase::Render() {
 
 void ViewerDemoBase::InitRemoteHandlers(
     const std::vector<ion::gfx::NodePtr>& nodes_to_track) {
-#if !ION_PRODUCTION
+// #if !ION_PRODUCTION
 
-#if defined(ION_PLATFORM_ASMJS) || defined(ION_PLATFORM_NACL)
-  remote_.reset(new ion::remote::RemoteServer(0));
-  remote_->SetEmbedLocalSourcedFiles(true);
-#else
-  remote_.reset(new ion::remote::RemoteServer(1234));
-#endif
-  ion::remote::NodeGraphHandlerPtr ngh(new ion::remote::NodeGraphHandler);
-  ngh->SetFrame(frame_);
-  for (size_t i = 0; i < nodes_to_track.size(); ++i)
-    ngh->AddNode(nodes_to_track[i]);
-  remote_->RegisterHandler(ngh);
-  remote_->RegisterHandler(
-      ion::remote::HttpServer::RequestHandlerPtr(
-          new ion::remote::CallTraceHandler()));
-  remote_->RegisterHandler(
-      ion::remote::HttpServer::RequestHandlerPtr(
-          new ion::remote::ResourceHandler(renderer_)));
-  remote_->RegisterHandler(
-      ion::remote::HttpServer::RequestHandlerPtr(
-          new ion::remote::SettingHandler()));
-  remote_->RegisterHandler(
-      ion::remote::HttpServer::RequestHandlerPtr(
-          new ion::remote::ShaderHandler(shader_manager_, renderer_)));
-  remote_->RegisterHandler(
-      ion::remote::HttpServer::RequestHandlerPtr(
-          new ion::remote::TracingHandler(frame_, renderer_)));
+// #if defined(ION_PLATFORM_ASMJS) || defined(ION_PLATFORM_NACL)
+//   remote_.reset(new ion::remote::RemoteServer(0));
+//   remote_->SetEmbedLocalSourcedFiles(true);
+// #else
+//   remote_.reset(new ion::remote::RemoteServer(1234));
+// #endif
+//   ion::remote::NodeGraphHandlerPtr ngh(new ion::remote::NodeGraphHandler);
+//   ngh->SetFrame(frame_);
+//   for (size_t i = 0; i < nodes_to_track.size(); ++i)
+//     ngh->AddNode(nodes_to_track[i]);
+//   remote_->RegisterHandler(ngh);
+//   remote_->RegisterHandler(
+//       ion::remote::HttpServer::RequestHandlerPtr(
+//           new ion::remote::CallTraceHandler()));
+//   remote_->RegisterHandler(
+//       ion::remote::HttpServer::RequestHandlerPtr(
+//           new ion::remote::ResourceHandler(renderer_)));
+//   remote_->RegisterHandler(
+//       ion::remote::HttpServer::RequestHandlerPtr(
+//           new ion::remote::SettingHandler()));
+//   remote_->RegisterHandler(
+//       ion::remote::HttpServer::RequestHandlerPtr(
+//           new ion::remote::ShaderHandler(shader_manager_, renderer_)));
+//   remote_->RegisterHandler(
+//       ion::remote::HttpServer::RequestHandlerPtr(
+//           new ion::remote::TracingHandler(frame_, renderer_)));
 
-#endif
+// #endif
 }
 
 const ion::math::Anglef ViewerDemoBase::GetTiltAngle() const {

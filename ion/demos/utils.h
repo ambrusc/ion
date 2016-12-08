@@ -32,7 +32,7 @@ limitations under the License.
 #include "ion/gfxutils/shadersourcecomposer.h"
 #include "ion/gfxutils/shapeutils.h"
 #include "ion/image/conversionutils.h"
-#include "ion/text/fontmanager.h"
+// #include "ion/text/fontmanager.h"
 
 namespace demoutils {
 
@@ -119,42 +119,42 @@ ion::gfx::ShaderProgramPtr LoadShaderProgramAsset(
     const std::string& vertex_shader_asset,
     const std::string& fragment_shader_asset);
 
-//-----------------------------------------------------------------------------
-//
-// Font management.
-//
-//-----------------------------------------------------------------------------
+// //-----------------------------------------------------------------------------
+// //
+// // Font management.
+// //
+// //-----------------------------------------------------------------------------
 
-// Uses the given FontManager to initialize a font. The name, size, and SDF
-// padding values are passed to the FontManager to specify the Font.  If any
-// errors occur, this logs a message and returns a NULL pointer.
-//
-// On Mac and iOS, the font name is passed to CoreText, which will use the
-// system font with that name if it exists, otherwise will fall back to the
-// default system font (Helvetica Neue). On other platforms, the font is loaded
-// from data in a file managed by the ZipAssetManager. The file name is created
-// by appending ".ttf" to the name of the font. If the font has already been
-// initialized by the FontManager, this just returns it.
-static inline ion::text::FontPtr InitFont(
-    const ion::text::FontManagerPtr& font_manager,
-    const std::string& font_name, size_t size_in_pixels, size_t sdf_padding) {
-  // See if the font is already initialized.
-  DCHECK(font_manager.Get());
-  ion::text::FontPtr font =
-      font_manager->FindFont(font_name, size_in_pixels, sdf_padding);
-  if (!font.Get()) {
-    // Read the font data.
-    const std::string& data =
-        ion::base::ZipAssetManager::GetFileData(font_name + ".ttf");
-    if (ion::base::IsInvalidReference(data) || data.empty()) {
-      LOG(ERROR) << "Unable to read data for font \"" << font_name << "\"";
-    } else {
-      font = font_manager->AddFont(
-          font_name, size_in_pixels, sdf_padding, &data[0], data.size());
-    }
-  }
-  return font;
-}
+// // Uses the given FontManager to initialize a font. The name, size, and SDF
+// // padding values are passed to the FontManager to specify the Font.  If any
+// // errors occur, this logs a message and returns a NULL pointer.
+// //
+// // On Mac and iOS, the font name is passed to CoreText, which will use the
+// // system font with that name if it exists, otherwise will fall back to the
+// // default system font (Helvetica Neue). On other platforms, the font is loaded
+// // from data in a file managed by the ZipAssetManager. The file name is created
+// // by appending ".ttf" to the name of the font. If the font has already been
+// // initialized by the FontManager, this just returns it.
+// static inline ion::text::FontPtr InitFont(
+//     const ion::text::FontManagerPtr& font_manager,
+//     const std::string& font_name, size_t size_in_pixels, size_t sdf_padding) {
+//   // See if the font is already initialized.
+//   DCHECK(font_manager.Get());
+//   ion::text::FontPtr font =
+//       font_manager->FindFont(font_name, size_in_pixels, sdf_padding);
+//   if (!font.Get()) {
+//     // Read the font data.
+//     const std::string& data =
+//         ion::base::ZipAssetManager::GetFileData(font_name + ".ttf");
+//     if (ion::base::IsInvalidReference(data) || data.empty()) {
+//       LOG(ERROR) << "Unable to read data for font \"" << font_name << "\"";
+//     } else {
+//       font = font_manager->AddFont(
+//           font_name, size_in_pixels, sdf_padding, &data[0], data.size());
+//     }
+//   }
+//   return font;
+// }
 
 //-----------------------------------------------------------------------------
 //

@@ -17,33 +17,33 @@ limitations under the License.
 
 #include "ion/demos/demobase.h"
 
-#if !ION_PRODUCTION
-#include "ion/remote/remoteserver.h"
+// #if !ION_PRODUCTION
+// #include "ion/remote/remoteserver.h"
 
-std::unique_ptr<ion::remote::RemoteServer> DemoBase::remote_;
-#endif
+// std::unique_ptr<ion::remote::RemoteServer> DemoBase::remote_;
+// #endif
 
 
 #if defined(ION_PLATFORM_ASMJS)
 extern "C" {
 char* IonRemoteGet(const char* page) {
-#if !ION_PRODUCTION
-  const std::string content = DemoBase::GetRemoteServer() ?
-      DemoBase::GetRemoteServer()->GetUriData(page) : "";
-  // Emscripten should clean up the memory.
-  char* content_cstr = reinterpret_cast<char*>(malloc(content.length() + 1));
-  memcpy(content_cstr, content.c_str(), content.length());
-  content_cstr[content.length()] = 0;
-  return content_cstr;
-#else
+// #if !ION_PRODUCTION
+//   const std::string content = DemoBase::GetRemoteServer() ?
+//       DemoBase::GetRemoteServer()->GetUriData(page) : "";
+//   // Emscripten should clean up the memory.
+//   char* content_cstr = reinterpret_cast<char*>(malloc(content.length() + 1));
+//   memcpy(content_cstr, content.c_str(), content.length());
+//   content_cstr[content.length()] = 0;
+//   return content_cstr;
+// #else
   return "";
-#endif
+// #endif
 }
 }
 #endif
 
 DemoBase::~DemoBase() {
-#if !ION_PRODUCTION
-  remote_.reset(NULL);
-#endif
+// #if !ION_PRODUCTION
+//   remote_.reset(NULL);
+// #endif
 }

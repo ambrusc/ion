@@ -61,7 +61,7 @@
         'gfx/gfx.gyp:iongfx',
         # 'gfxprofile/gfxprofile.gyp:iongfxprofile',
         # 'gfxutils/gfxutils.gyp:iongfxutils',
-        # 'image/image.gyp:ionimage',
+        'image/image.gyp:ionimage',
         'math/math.gyp:ionmath',
         'portgfx/portgfx.gyp:ionportgfx',
         'port/port.gyp:ionport',

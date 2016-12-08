@@ -31,7 +31,7 @@ limitations under the License.
 #include "ion/base/stringutils.h"
 #include "ion/base/zipassetmanager.h"
 #include "ion/base/zipassetmanagermacros.h"
-#include "ion/demos/hud.h"
+// #include "ion/demos/hud.h"
 #include "ion/demos/utils.h"
 #include "ion/demos/viewerdemobase.h"
 #include "ion/gfx/attributearray.h"
@@ -196,7 +196,7 @@ class IonSkinDemo : public ViewerDemoBase {
 
   float model_radius_;
 
-  Hud hud_;
+  // Hud hud_;
 };
 
 IonSkinDemo::IonSkinDemo(int width, int height)
@@ -249,11 +249,12 @@ IonSkinDemo::IonSkinDemo(int width, int height)
       profile_weights_("SkinDemo/profile weights",
                        std::vector<Vector3f>(),
                        "Profile weights"),
-      exposure_("SkinDemo/exposure", 1.5f, "Exposure"),
-      hud_(ion::text::FontManagerPtr(new ion::text::FontManager),
-           GetShaderManager(),
-           width,
-           height) {
+      exposure_("SkinDemo/exposure", 1.5f, "Exposure") //,
+      // hud_(ion::text::FontManagerPtr(new ion::text::FontManager),
+      //      GetShaderManager(),
+      //      width,
+      //      height) 
+      {
   std::vector<Vector3f> weights;
   // See http://http.developer.nvidia.com/GPUGems3/gpugems3_ch14.html
   weights.push_back(Vector3f(0.233f, 0.455f, 0.649f));
@@ -299,18 +300,18 @@ IonSkinDemo::IonSkinDemo(int width, int height)
   SetNodeWithViewUniforms(draw_root_);
   UpdateViewUniforms();
 
-  // --------------------------------------------------------------------------
-  // Set up HUD for FPS display.
-  // --------------------------------------------------------------------------
-  Hud::TextRegion fps_region;
-  fps_region.resize_policy = Hud::TextRegion::kFixedSize;
-  fps_region.target_point.Set(0.5f, 0.02f);
-  fps_region.target_size.Set(0.15f, 0.025f);
-  fps_region.horizontal_alignment = ion::text::kAlignHCenter;
-  fps_region.vertical_alignment = ion::text::kAlignBottom;
-  hud_.InitFps(4, 2, fps_region);
-  hud_.GetRootNode()->SetLabel("HUD FPS");
-  hud_.EnableFps(true);
+  // // --------------------------------------------------------------------------
+  // // Set up HUD for FPS display.
+  // // --------------------------------------------------------------------------
+  // Hud::TextRegion fps_region;
+  // fps_region.resize_policy = Hud::TextRegion::kFixedSize;
+  // fps_region.target_point.Set(0.5f, 0.02f);
+  // fps_region.target_size.Set(0.15f, 0.025f);
+  // fps_region.horizontal_alignment = ion::text::kAlignHCenter;
+  // fps_region.vertical_alignment = ion::text::kAlignBottom;
+  // hud_.InitFps(4, 2, fps_region);
+  // hud_.GetRootNode()->SetLabel("HUD FPS");
+  // hud_.EnableFps(true);
   ion::portgfx::SetSwapInterval(0);
 
   // --------------------------------------------------------------------------
@@ -367,8 +368,8 @@ IonSkinDemo::IonSkinDemo(int width, int height)
       -10.f, 10.f, -10.f, 10.f, -1.f, 1.f);
   const Matrix4f ortho_view = ion::math::RotationMatrixAxisAngleH(
       Vector3f::AxisX(), Anglef::FromDegrees(90.f));
-  const ion::gfx::ShaderInputRegistryPtr& global_reg =
-      ion::gfx::ShaderInputRegistry::GetGlobalRegistry();
+  // const ion::gfx::ShaderInputRegistryPtr& global_reg =
+  //     ion::gfx::ShaderInputRegistry::GetGlobalRegistry();
 
   // --------------------------------------------------------------------------
   // Draw Root
@@ -543,29 +544,29 @@ IonSkinDemo::IonSkinDemo(int width, int height)
       0U, ion::gfx::FramebufferObject::Attachment(blurred_depth_map_));
   blur_fbo_->SetLabel("Blur FBO");
 
-  // --------------------------------------------------------------------------
-  // Hud
-  // --------------------------------------------------------------------------
-  texture_display_root_.Reset(new ion::gfx::Node);
-  texture_display_root_->SetLabel("Texture Display Root");
-  const int hud_size = std::min(width >> 2, height >> 2);
-  state_table.Reset(new ion::gfx::StateTable(hud_size, hud_size));
-  state_table->SetViewport(
-      Range2i::BuildWithSize(Point2i(0, 0), Vector2i(hud_size, hud_size)));
-  texture_display_root_->SetStateTable(state_table);
+  // // --------------------------------------------------------------------------
+  // // Hud
+  // // --------------------------------------------------------------------------
+  // texture_display_root_.Reset(new ion::gfx::Node);
+  // texture_display_root_->SetLabel("Texture Display Root");
+  // const int hud_size = std::min(width >> 2, height >> 2);
+  // state_table.Reset(new ion::gfx::StateTable(hud_size, hud_size));
+  // state_table->SetViewport(
+  //     Range2i::BuildWithSize(Point2i(0, 0), Vector2i(hud_size, hud_size)));
+  // texture_display_root_->SetStateTable(state_table);
 
-  ion::gfx::NodePtr rect = BuildRectangle();
-  rect->SetLabel("Rect Node");
-  demoutils::AddUniformToNode(
-      reg, "uTexture", depth_map_, texture_display_root_);
-  demoutils::AddUniformToNode(reg, "uFlip", 0.f, texture_display_root_);
-  rect->SetShaderProgram(demoutils::LoadShaderProgramAsset(
-      GetShaderManager(), "Texture shader", reg, "texture"));
+  // ion::gfx::NodePtr rect = BuildRectangle();
+  // rect->SetLabel("Rect Node");
+  // demoutils::AddUniformToNode(
+  //     reg, "uTexture", depth_map_, texture_display_root_);
+  // demoutils::AddUniformToNode(reg, "uFlip", 0.f, texture_display_root_);
+  // rect->SetShaderProgram(demoutils::LoadShaderProgramAsset(
+  //     GetShaderManager(), "Texture shader", reg, "texture"));
 
-  demoutils::AddUniformToNode(
-      global_reg, "uProjectionMatrix", ortho_proj, rect);
-  demoutils::AddUniformToNode(global_reg, "uModelviewMatrix", ortho_view, rect);
-  texture_display_root_->AddChild(rect);
+  // demoutils::AddUniformToNode(
+  //     global_reg, "uProjectionMatrix", ortho_proj, rect);
+  // demoutils::AddUniformToNode(global_reg, "uModelviewMatrix", ortho_view, rect);
+  // texture_display_root_->AddChild(rect);
 
   // --------------------------------------------------------------------------
   // Remote handlers.
@@ -575,14 +576,14 @@ IonSkinDemo::IonSkinDemo(int width, int height)
   tracked_nodes.push_back(blur_root_);
   tracked_nodes.push_back(depth_map_root_);
   tracked_nodes.push_back(irradiance_root_);
-  tracked_nodes.push_back(hud_.GetRootNode());
+  // tracked_nodes.push_back(hud_.GetRootNode());
   InitRemoteHandlers(tracked_nodes);
 }
 
 void IonSkinDemo::Resize(int width, int height) {
   ViewerDemoBase::Resize(width, height);
 
-  hud_.Resize(width, height);
+  // hud_.Resize(width, height);
 
   const Range2i viewport =
       Range2i::BuildWithSize(Point2i(0, 0), Vector2i(width, height));
@@ -622,8 +623,8 @@ void IonSkinDemo::Resize(int width, int height) {
 }
 
 void IonSkinDemo::Update() {
-  if (show_hud_)
-    hud_.Update();
+  // if (show_hud_)
+  //   hud_.Update();
   if (auto_rotate_light_) {
     static ion::port::Timer timer;
     const double delta = timer.GetInS() * auto_rotation_speed_;
@@ -824,8 +825,8 @@ void IonSkinDemo::RenderFrame() {
     renderer->DrawScene(texture_display_root_);
   }
 
-  if (show_hud_)
-    renderer->DrawScene(hud_.GetRootNode());
+  // if (show_hud_)
+  //   renderer->DrawScene(hud_.GetRootNode());
 }
 
 void IonSkinDemo::ProcessMotion(float x, float y, bool is_press) {

@@ -47,13 +47,13 @@ limitations under the License.
 #include "ion/math/utils.h"
 #include "ion/math/vector.h"
 #include "ion/math/vectorutils.h"
-#include "ion/text/basicbuilder.h"
-#include "ion/text/builder.h"
-#include "ion/text/font.h"
-#include "ion/text/fontimage.h"
-#include "ion/text/fontmanager.h"
-#include "ion/text/layout.h"
-#include "ion/text/outlinebuilder.h"
+// #include "ion/text/basicbuilder.h"
+// #include "ion/text/builder.h"
+// #include "ion/text/font.h"
+// #include "ion/text/fontimage.h"
+// #include "ion/text/fontmanager.h"
+// #include "ion/text/layout.h"
+// #include "ion/text/outlinebuilder.h"
 
 using ion::math::Point2i;
 using ion::math::Range2i;
