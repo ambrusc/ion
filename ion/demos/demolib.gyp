@@ -32,8 +32,8 @@
       ],
       'dependencies' : [
         '<(ion_dir)/base/base.gyp:ionbase',
-        '<(ion_dir)/text/text.gyp:iontext',
-        '<(ion_dir)/remote/remote.gyp:ionremote',
+        # '<(ion_dir)/text/text.gyp:iontext',
+        # '<(ion_dir)/remote/remote.gyp:ionremote',
       ],
     },  # target: iondemo
   ],  # targets

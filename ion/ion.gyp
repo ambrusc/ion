@@ -36,57 +36,57 @@
         }],
       ],  # conditions
     },
-    {
-      'target_name': 'examples',
-      'type': 'none',
-      'conditions': [
-        # Examples build only on systems with FreeGLUT
-        ['OS in ["linux", "windows"]', {
-          'dependencies' : [
-            'doc/usersguide/examples/examples.gyp:*',
-          ],
-        }],
-      ],  # conditions
-    },
+    # {
+    #   'target_name': 'examples',
+    #   'type': 'none',
+    #   'conditions': [
+    #     # Examples build only on systems with FreeGLUT
+    #     ['OS in ["linux", "windows"]', {
+    #       'dependencies' : [
+    #         'doc/usersguide/examples/examples.gyp:*',
+    #       ],
+    #     }],
+    #   ],  # conditions
+    # },
     {
       # NOTE: Do not depend on this target! See note above.
       'target_name': 'all_public_libraries',
       'type': 'none',
       'dependencies' : [
-        'analytics/analytics.gyp:ionanalytics',
+        # 'analytics/analytics.gyp:ionanalytics',
         'base/base.gyp:ionbase',
-        'external/external.gyp:*',
-        'external/freetype2.gyp:ionfreetype2',
-        'external/imagecompression.gyp:ionimagecompression',
+        # 'external/external.gyp:*',
+        # 'external/freetype2.gyp:ionfreetype2',
+        # 'external/imagecompression.gyp:ionimagecompression',
         'gfx/gfx.gyp:iongfx',
-        'gfxprofile/gfxprofile.gyp:iongfxprofile',
-        'gfxutils/gfxutils.gyp:iongfxutils',
-        'image/image.gyp:ionimage',
+        # 'gfxprofile/gfxprofile.gyp:iongfxprofile',
+        # 'gfxutils/gfxutils.gyp:iongfxutils',
+        # 'image/image.gyp:ionimage',
         'math/math.gyp:ionmath',
         'portgfx/portgfx.gyp:ionportgfx',
         'port/port.gyp:ionport',
-        'profile/profile.gyp:ionprofile',
-        'remote/remote.gyp:ionremote',
-        'text/text.gyp:iontext',
+        # 'profile/profile.gyp:ionprofile',
+        # 'remote/remote.gyp:ionremote',
+        # 'text/text.gyp:iontext',
       ],
     },
-    {
-      'target_name': 'all_tests',
-      'type': 'none',
-      'dependencies' : [
-        'analytics/tests/analytics_tests.gyp:ionanalytics_test',
-        'base/tests/base_tests.gyp:ionbase_test',
-        'gfx/tests/gfx_tests.gyp:iongfx_test',
-        'gfxprofile/tests/gfxprofile_tests.gyp:iongfxprofile_test',
-        'gfxutils/tests/gfxutils_tests.gyp:iongfxutils_test',
-        'image/tests/image_tests.gyp:ionimage_test',
-        'math/tests/math_tests.gyp:ionmath_test',
-        'port/tests/port_tests.gyp:ionport_test',
-        'portgfx/tests/portgfx_tests.gyp:ionportgfx_test',
-        'profile/tests/profile_tests.gyp:ionprofile_test',
-        'remote/tests/remote_tests.gyp:ionremote_test',
-        'text/tests/text_tests.gyp:iontext_test',
-      ],
-    },
+    # {
+    #   'target_name': 'all_tests',
+    #   'type': 'none',
+    #   'dependencies' : [
+    #     'analytics/tests/analytics_tests.gyp:ionanalytics_test',
+    #     'base/tests/base_tests.gyp:ionbase_test',
+    #     'gfx/tests/gfx_tests.gyp:iongfx_test',
+    #     'gfxprofile/tests/gfxprofile_tests.gyp:iongfxprofile_test',
+    #     'gfxutils/tests/gfxutils_tests.gyp:iongfxutils_test',
+    #     'image/tests/image_tests.gyp:ionimage_test',
+    #     'math/tests/math_tests.gyp:ionmath_test',
+    #     'port/tests/port_tests.gyp:ionport_test',
+    #     'portgfx/tests/portgfx_tests.gyp:ionportgfx_test',
+    #     'profile/tests/profile_tests.gyp:ionprofile_test',
+    #     'remote/tests/remote_tests.gyp:ionremote_test',
+    #     'text/tests/text_tests.gyp:iontext_test',
+    #   ],
+    # },
   ],
 }
